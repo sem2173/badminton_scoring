@@ -7,14 +7,14 @@ class Game
 
     def point!(player)
 
-        if player == :J2
-            @score = {J1:0, J2:1}
+        if player == :J1
+            @score[:J1] += 1
         else
-            @score = {J1:1, J2:0}
+            @score[:J2] += 1
         end
     end
 
     def score
-    @score       
+        @score       
     end
 end
