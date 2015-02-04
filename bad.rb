@@ -7,12 +7,12 @@ class Game
         @set = {J1:0, J2:0}
     end
 
-    def point!(player)
+    def point!(player)        
         @point[player] += 1
-    end
 
-    def set
-        @point = {J1:0, J2:0}
-        {J1:1, J2: 0}
-    end
+        if @point[player] == 21
+            @point = {J1:0, J2:0}
+            @set[player]+=1
+        end
+    end   
 end
