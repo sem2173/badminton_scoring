@@ -1,19 +1,18 @@
 class Game
 
-attr_reader :score
+    attr_reader :point, :set
 
-    def initialize  
-        @score = {J1:0, J2:0}        
-        
-    end 
+    def initialize
+        @point = {J1:0, J2:0}
+        @set = {J1:0, J2:0}
+    end
 
-
-    def point!(player)        
-        @score[player] += 1 
-
+    def point!(player)
+        @point[player] += 1
     end
 
     def set
-        @score={J1: 1, J2: 0}
+        @point = {J1:0, J2:0}
+        {J1:1, J2: 0}
     end
 end
