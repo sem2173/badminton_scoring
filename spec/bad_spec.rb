@@ -36,11 +36,52 @@ describe 'Badminton Score' do
         check_point([0,0])
     end
 
-    it "2 points difference" do
+    it "not 2 points difference" do
         20.times {game.point!(:J2)}
         21.times {game.point!(:J1)}
         expect(game.set).to eq({J1:0, J2: 0})
         check_point([21,20])
+    end
+
+    it "not 2 points difference after 21 " do
+        20.times {game.point!(:J2)}
+        21.times {game.point!(:J1)}
+        2.times {game.point!(:J2)}
+        expect(game.set).to eq({J1:0, J2: 0})
+        check_point([21,22])
+    end
+
+    it "2 points difference after 21 " do
+        20.times {game.point!(:J2)}
+        21.times {game.point!(:J1)}
+        3.times {game.point!(:J2)}
+        expect(game.set).to eq({J1:0, J2: 1})
+        check_point([0,0])
+    end
+
+    it "2 points difference max 30 " do        
+        20.times {game.point!(:J2)}
+        21.times {game.point!(:J1)}
+        2.times {game.point!(:J2)}
+        2.times {game.point!(:J1)}
+        2.times {game.point!(:J2)}
+        2.times {game.point!(:J1)}
+        2.times {game.point!(:J2)}
+        2.times {game.point!(:J1)}
+        2.times {game.point!(:J2)}
+        2.times {game.point!(:J1)}
+        2.times {game.point!(:J2)}
+        expect(game.set).to eq({J1:0, J2: 1})
+        check_point([0,0])
+    end
+    it "player win two sets and win the match " do        
+        18.times {game.point!(:J2)}
+        21.times {game.point!(:J1)}
+        6.times {game.point!(:J2)}
+        21.times {game.point!(:J1)}
+        1.times {game.point!(:J1)}
+        expect(game.current_match).to eq("Match terminé, Score de fin XXXXX")
+        check_point([0,0])
     end
 
     it "other player" do
