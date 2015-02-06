@@ -1,4 +1,4 @@
-require './bad'
+require 'bad'
 
 describe 'Badminton Score' do
 
@@ -80,7 +80,7 @@ describe 'Badminton Score' do
         6.times {game.point!(:J2)}
         21.times {game.point!(:J1)}
         1.times {game.point!(:J1)}
-        expect(game.current_match).to eq("Match terminé, Score de fin XXXXX")
+        expect(game.current_match).to eq("message")
         check_point([0,0])
     end
 

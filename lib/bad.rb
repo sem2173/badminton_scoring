@@ -9,7 +9,7 @@ class Game
 
     def point!(player)        
         
-        return "Match terminé, Score de fin XXXXX" if @set.values.max >= 2 
+        return "message" if @set.values.max >= 2 
 
         @point[player] += 1
 
@@ -21,7 +21,7 @@ class Game
 
     def current_match
 
-        return "Match terminé, Score de fin XXXXX"   if @set.values.max >= 2 
+        return "message"   if @set.values.max >= 2 
     end
 
     def other_player(player)

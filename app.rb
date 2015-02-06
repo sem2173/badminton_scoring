@@ -1,18 +1,19 @@
 require 'sinatra'
-require './bad.rb'
+require './lib/bad.rb'
 
 get '/' do
-  erb :index
+   game = Game.new
+   @point = game.point
+   erb :index
 end
 
 post '/' do
 
-game = Game.new
-  joueur_gagnant = params[:marque] == "Joueur1" ? :joueur1 : :joueur2
-  game.point!(joueur_gagnant)
-  score_joueur_1 = game.score(:J1)
-  score_joueur_2 = game.score(:J2)
-  erb :index  
+#   game = Game.new(etat_courant)
+    game = Game.new
+    game.point!(params[:marque].gsub(/oueur /, '').to_sym)
+    @point = game.point
+    erb :index  
 end
 
 

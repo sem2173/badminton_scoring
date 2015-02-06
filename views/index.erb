@@ -5,16 +5,15 @@
 </head>
 <body>
     <h1> Katabadminton</h1>
-  <p> Pour entrer un point appuyer sur le boutton</p> 
-  <form method="post" action="/">
-    <input type="submit" value="Joueur 1" name="marque" />
-    <input type="hidden" value="@score" name="score_joueur_1">
-    <input type="submit" value="Joueur 2" name="marque"/>
-    <input type="hidden" value="@score" name="score_joueur_2">
-</form>
-<br />
-<div>Joueur1 : <%= @score %></div>
-<div>Joueur2 : <%= @score %></div>
+    <p> Pour entrer un point appuyer sur le boutton</p> 
+    <form method="post" action="/">
+        <input type="submit" value="Joueur 1" name="marque" />
+        <input type="hidden" value="0" name="score_joueur_1">
+        <input type="submit" value="Joueur 2" name="marque"/>
+        <input type="hidden" value="0" name="score_joueur_2">
+    </form>
+
+    <div>Joueur1 : <%= @point[:J1] %></div>
+    <div>Joueur2 : <%= @point[:J2]  %></div>
 </body>
-</html>
 </html>
