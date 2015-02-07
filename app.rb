@@ -8,8 +8,6 @@ get '/' do
 end
 
 post '/' do
-
-#   game = Game.new(etat_courant)
     game = Game.new
     game.point!(params[:marque].gsub(/oueur /, '').to_sym)
     @point = game.point
