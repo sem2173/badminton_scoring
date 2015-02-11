@@ -13,7 +13,12 @@
         <input type="hidden" value="0" name="score_joueur_2">
     </form>
 
-    <div>Joueur1 : <%= @point[:J1] %></div>
-    <div>Joueur2 : <%= @point[:J2]  %></div>
+    <div>Joueur1  point: <%= @point[:J1] %> set: <%= @set[:J1] %></div>
+    <div>Joueur2  point: <%= @point[:J2] %> set: <%= @set[:J2] %></div>
+
+    <form method="post" action="/reset_game">
+        <input type="submit" value="Reset Game"/>
+    </form>
+
 </body>
 </html>
