@@ -1,5 +1,5 @@
 require 'sinatra'
-require './lib/bad.rb'
+require './lib/game.rb'
 
 get '/' do
    game = Game.new
@@ -11,7 +11,5 @@ post '/' do
     game = Game.new
     game.point!(params[:marque].gsub(/oueur /, '').to_sym)
     @point = game.point
-    erb :index  
+    erb :index
 end
-
-
