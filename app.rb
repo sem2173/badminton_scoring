@@ -1,5 +1,6 @@
 require 'sinatra'
 require './lib/game.rb'
+require 'json'
 
 get '/' do
    game = Game.new
@@ -12,4 +13,5 @@ post '/' do
     game.point!(params[:marque].gsub(/oueur /, '').to_sym)
     @point = game.point
     erb :index
+    return @point.to_json
 end
