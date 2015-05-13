@@ -1,27 +1,27 @@
-require 'bad'
+require 'game'
 
 describe 'Badminton Score' do
 
     def check_point(score)
         new_score = {J1: score[0], J2: score[1]}
-        expect(game.point).to eq(new_score)  
+        expect(game.point).to eq(new_score)
     end
 
     let(:game) {Game.new}
-    
+
     it "no begin set no score" do
-        check_point([0,0])    
+        check_point([0,0])
     end
 
     it " J1 scores 1 point" do
         game.point!(:J1)
-        check_point([1,0])    
+        check_point([1,0])
     end
 
     it " J2 scores 1 point" do
         game.point!(:J2)
         check_point([0,1])
-    end 
+    end
 
     it " J1 scores 1 point and J2 scores 1 point" do
         game.point!(:J1)
@@ -59,7 +59,7 @@ describe 'Badminton Score' do
         check_point([0,0])
     end
 
-    it "2 points difference max 30 " do        
+    it "2 points difference max 30 " do
         20.times {game.point!(:J2)}
         21.times {game.point!(:J1)}
         2.times {game.point!(:J2)}
@@ -74,7 +74,7 @@ describe 'Badminton Score' do
         expect(game.set).to eq({J1:0, J2: 1})
         check_point([0,0])
     end
-    it "player win two sets and win the match " do        
+    it "player win two sets and win the match " do
         18.times {game.point!(:J2)}
         21.times {game.point!(:J1)}
         6.times {game.point!(:J2)}
