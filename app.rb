@@ -10,8 +10,10 @@ end
 
 post '/' do
     game = Game.new
-    game.point!('{params[:marque].gsub(/oueur /, '').to_sym}')
+    count = game.point!(params[:marque].gsub(/oueur /, '').to_sym)
     @point = game.point
+    values = JSON.parse(@point.to_json)
+    File.open('data.json', 'w'){|file| file.write(values)}
     erb :index
-    return @point.to_json
+
 end
