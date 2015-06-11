@@ -3,9 +3,8 @@ require 'sinatra'
 require './lib/game.rb'
 
 get '/' do
-   game = Game.new
-   @point = game.point
-   @data = JSON.parse(File.read("data.json"))
+   game = Game.new   
+   @point = JSON.parse(File.read("data.json"))
    erb :index
 end
 
