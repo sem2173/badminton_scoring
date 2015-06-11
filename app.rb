@@ -3,7 +3,7 @@ require 'sinatra'
 require './lib/game.rb'
 
 get '/' do
-   game = Game.new   
+   game = Game.new
    @point = JSON.parse(File.read("data.json"))
    erb :index
 end
@@ -14,5 +14,4 @@ post '/' do
     @point = game.point
     File.write("data.json", game.point.to_json)
     erb :index
-
 end
